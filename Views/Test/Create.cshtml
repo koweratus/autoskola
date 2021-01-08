@@ -1,0 +1,25 @@
+﻿@model CoksaProject.ViewModels.CandidateCreateViewModel
+
+@{
+    ViewBag.Title = "Create Employee";
+}
+
+<form enctype="multipart/form-data" asp-controller="Test"
+      asp-action="Create"method="post">
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <label
+                asp-for="Horas" class="col-sm-2 col-form-label">
+            </label>
+            <input class="form-control" asp-for="Horas"/>
+        </div>
+    </div>
+    <span asp-validation-for="Horas" lass="text-danger"></span>
+
+    <div>
+        <button class="btn btn-info">Create</button>
+    </div>
+
+
+
+</form>

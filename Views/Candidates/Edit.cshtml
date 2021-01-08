@@ -1,0 +1,123 @@
+﻿@model CoksaProject.ViewModels.CandidateEditViewModel
+
+@{
+    ViewBag.Title = "Edit Employee";
+    /*
+    var photoPath = "~/img/" + (Model.ExistingPhotoPath ?? "dante.png");
+*/
+}
+
+<form enctype="multipart/form-data" asp-controller="Candidates"
+      asp-action="Edit"method="post">
+    <input hidden asp-for="ID"/>
+    @*<input hidden asp-for="ExistingPhotoPath"/>*@
+    <span asp-validation-for="FirstName" lass="text-danger"></span>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <label
+                asp-for="FirstName" class="col-sm-2 col-form-label">
+            </label>
+            <input class="form-control" asp-for="FirstName"/>
+        </div>
+    </div>
+
+    <span asp-validation-for="LastName" lass="text-danger"></span>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <label
+                asp-for="LastName" class="col-sm-2 col-form-label">
+            </label>
+            <input class="form-control" asp-for="LastName"/>
+        </div>
+    </div>
+    <span asp-validation-for="MobileNumber"
+          class="text-danger">
+    </span>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <label class="col-sm-2 
+        col-form-label"asp-for="MobileNumber"></label>
+            <input class="form-control"asp-for="MobileNumber"/>
+        </div>
+    </div>
+   
+    @*<div class="form-group row">
+        <div class="col-sm-10">
+            <label class="col-sm-2 col-form-label"
+                   asp-for="DateOfBirth"></label>
+            <select asp-for="DateOfBirth"
+                    class="custom-select-sm mr-sm-2"
+                    asp-items="Html
+    .GetEnumSelectList<Dept>()">
+                <option value="">Please select</option>
+            </select>
+            <span asp-validation-for="Department"
+                  class="text-danger">
+            </span></div>
+    </div>*@
+    <span asp-validation-for="DateOfBirth"
+          class="text-danger">
+    </span>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <label class="col-sm-2 col-form-label"asp-for="DateOfBirth"></label>
+            <input class="form-control"asp-for="DateOfBirth"/>
+        </div>
+    </div>
+       <div class="form-group row">
+              <div class="col-sm-10 custom-control  custom-checkbox">
+                  <label class=" custom-control-label"asp-for="FirstAidPassed"></label>
+                  <input  type="checkbox"  class=" custom-control-input "asp-for="FirstAidPassed"/>
+              </div>
+          </div>
+          <div class="form-group row">
+              <div class="custom-control custom-checkbox">
+                  <input  type="checkbox"   class="custom-control-input" 
+                  asp-for="DriverTestPassed"/>
+                  <label class="custom-control-label"   asp-for="DriverTestPassed"></label>
+              </div>
+          </div>
+    @*<div class="form-group row col-sm-4 offset-4">
+        <img src="@photoPath" class="img-thumbnail"
+             asp-append-version="true"/></div>
+    <div asp-validation-summary="All"></div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <label class="col-sm-2 
+        col-form-label"asp-for="Photos"></label>
+            <div class="custom-file">
+                <input multiple class="form-control 
+        custom-file-input"asp-for="Photos"/>
+                <label class="custom-file-label">Click here to change Photo</label>
+            </div>
+        </div>
+    </div>*@
+    <div>
+        <button class="btn btn-info">Edit</button>
+        <a asp-controller="Candidates" asp-action="Index"
+           class="btn btn-info">
+            Cancel
+        </a>
+    </div>
+
+    @section Scripts
+    {
+        <script>
+        $(document).ready(function(){
+            $('.custom-file-input').on("change",function() {
+              var fileLabel = $(this).next('' +
+               '.custom-file-label');
+              var files = $(this)[0].files;
+              if (files.length>1){
+                  fileLabel.html(files.length + ' files ' +
+                   'selected');
+              }
+              else if (files.length ==1){
+                  fileLabel.html(files[0].name)
+              }
+            });
+        });
+        </script>
+    }
+
+</form>

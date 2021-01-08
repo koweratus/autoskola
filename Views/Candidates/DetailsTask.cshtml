@@ -1,0 +1,88 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model List<CandidateTasks>
+@inject SignInManager<ApplicationUser> signInManager;
+@{
+    var sum = @Model.Sum(i => i.Hours.HoursN);
+}
+<table class="table">
+    <tbody>
+    <thead>
+    <tr>
+        <th>
+            Description
+        </th>
+        <th>
+            Codename
+        </th>
+        <th>
+            Hours Completed
+        </th>
+        <th>
+            Hours
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            @*
+                           <img class="card-img-top" src="@photoPath" asp-append-version="true"/>
+                           *@
+            <td>
+                <h6>  @item.Tasks.Description</h6>
+            </td>
+            <td>
+                <h6>  @item.Tasks.CodeName</h6>
+            </td>
+
+            @if (@item.Hours.HoursN >= @item.Tasks.Hours)
+            {
+                <td>
+                    <h6 style="color:#23a645">  @item.Hours.HoursN</h6>
+                </td>
+                <td>
+                    <h6 style="color:#23a645"> @item.Tasks.Hours</h6>
+                </td>
+            }
+            else
+            {
+                <td>
+                    <h6 style="color:#dc361c" > @item.Hours.HoursN</h6>
+                </td>
+                <td>
+                    <h6 style="color:#dc361c"> @item.Tasks.Hours</h6>
+                </td>
+            }
+            @if (signInManager.IsSignedIn(User))
+            {
+                <td>
+                    <a asp-controller="Candidates"
+                       asp-action="EditTasks" asp-route-id="@item.Hours.ID"
+                       class="btn 
+                btn-info 
+                m-1">
+                        Edit
+                    </a>
+                </td>
+            }
+        </tr>
+    }
+    <div>
+        <b id="cash">Total hours completed: @sum</b> 
+    </div>
+    @if (@sum >= 35)
+    {
+        <div class="alert alert-success" role="alert">
+            This Candidte is now ready to take driving test!
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            This Candidte is not yet ready to take driving test!
+        </div>
+    }
+    </tbody>
+</table>

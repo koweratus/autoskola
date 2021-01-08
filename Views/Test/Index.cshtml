@@ -1,0 +1,95 @@
+﻿@{  
+    Layout = null;  
+}  
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>   
+<script src = "https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js"></script> 
+<link href = "~/lib/bootstrap/dist/css/bootstrap.css" rel = "stylesheet" />
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />   
+<link href = "https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel = "stylesheet" />  
+  
+    <div class = "container" >  
+    <br />   
+    <div style = "width:90%; margin:0 auto;" >  
+    <table id="example" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">    
+                <thead>    
+                    <tr>    
+                        <th>ID</th>    
+                        <th>CodeName</th>    
+                        <th>Description</th>    
+                        <th>Hours</th>    
+                        <th>HoursCompleted</th>    
+                        <th>Edit</th>    
+                        <th>Delete</th>    
+                    </tr>    
+                </thead>    
+            </table>   
+            </div>     
+            </div>    
+  
+    <script type="text/javascript">  
+  
+    $(document).ready(function() {  
+        $("#example").DataTable({  
+            "processing": true, // for show progress bar    
+            "serverSide": true, // for process server side    
+            "filter": true, // this is for disable filter (search box)    
+            "orderMulti": false, // for disable multiple column at once    
+            "ajax": {  
+                url: "/Test/LoadData",  
+                type: "POST",  
+                datatype: "json"  ,
+                 headers: {
+                               "Content-Type": "application/x-www-form-urlencoded"
+                                }
+            },  
+            "columnDefs": [{  
+                targets: [0],  
+                visible: false,  
+                searchable: false  
+            }],  
+            "columns": [  
+                { "data": "id", "name": "ID", "autoWidth": true },  
+                { "data": "codeName", "name": "CodeName", "autoWidth": true },  
+                { "data": "description", "name": "Description", "autoWidth": true },  
+                { "data": "hours", "name": "Hours", "autoWidth": true },  
+                { "data": "hoursCompleted", "name": "HoursCompleted", "autoWidth": true },  
+                {  
+                    "render": function(data, type, full, meta) { return '<a class="btn btn-info" href="/Test/Edit/' + full.CustomerID + '">Edit</a>'; }  
+                },  
+                {  
+                    data: null,  
+                    render: function(data, type, row) {  
+                        return "<a href='#' class='btn btn-danger' onclick=DeleteData('" + row.CustomerID + "'); >Delete</a>";  
+                    }  
+                },  
+            ]  
+  
+        });  
+    });  
+  
+  
+function DeleteData(ID) {  
+    if (confirm("Are you sure you want to delete ...?")) {  
+        Delete(ID);  
+    } else {  
+        return false;  
+    }  
+}  
+  
+  
+function Delete(ID) {  
+    var url = '@Url.Content("~/")' + "DemoGrid/Delete";  
+  
+    $.post(url, { ID: ID }, function(data) {  
+        if (data) {  
+            oTable = $('#example').DataTable();  
+            oTable.draw();  
+        } else {  
+            alert("Something Went Wrong!");  
+        }  
+    });  
+}  
+  
+</script>  

@@ -1,0 +1,116 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-CoksaProject-1C7DA8DE-B422-49E5-88E8-55755F041878</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Candidates\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Candidates\Create.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Candidates\Details.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Candidates\Edit.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Test\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Candidates\DetailsTask.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Candidates\EditTasks.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Candidates\AddTask.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Test\Create.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\img\blog\1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\img\blog\2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\img\blog\3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\img\icons\back.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\img\icons\brain.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\img\icons\check-icon.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\img\icons\next.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\img\icons\p-1.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\img\icons\p-2.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\img\icons\p-3.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\img\icons\pause.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\img\icons\play.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\img\icons\pointer.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\img\icons\smartphone.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\img\premium\1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\img\premium\2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\img\premium\3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\img\premium\4.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\dogger_bones.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\dogger_checkup.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\dogger_dermatology.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\dogger_dryer.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\dogger_img_1.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\dogger_img_big_1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\dogger_img_sm_1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\dogger_img_sm_2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\dogger_img_sm_3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\dogger_img_sm_4.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\dogger_img_sm_5.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\dogger_img_sm_6.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\dogger_trainer_1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\dogger_trainer_2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\dogger_trainer_3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\dogger_veterinarian.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\dogger_veterinary.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\person_1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\person_2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\person_3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\person_4.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\person_5.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\person_6.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\person_7.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\person_8.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\icomoon\demo-files\demo.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\icomoon\demo-files\demo.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\icomoon\demo.html" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\icomoon\fonts\icomoon.eot" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\icomoon\fonts\icomoon.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\icomoon\fonts\icomoon.ttf" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\icomoon\fonts\icomoon.woff" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\icomoon\Read Me.txt" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\icomoon\selection.json" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\icomoon\style.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\img" />
+  </ItemGroup>
+
+</Project>

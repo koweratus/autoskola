@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model CoksaProject.ViewModels.CandidateDetailsViewModel
+@inject SignInManager<ApplicationUser> signInManager;
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="row">
+            
+            <div class="card-body text-center">
+                @*
+                                               <img class="card-img-top" src="@photoPath" asp-append-version="true"/>
+                                               *@
+
+                <h4> <b>Candidate's Full Name:</b> @Model.Candidate.FirstName @Model.Candidate.LastName</h4>
+                <h4> <b>Date of Birth:</b> @Model.Candidate.DateOfBirth.ToString("dd/M/yyyy")</h4>
+                <h4> <b>Mobile Number:</b>  @Model.Candidate.MobileNumber</h4>
+                <h4> <b>First Aid Passed:</b> @Model.Candidate.FirstAidPassed</h4>
+                <h4> <b>Driver TestPassed:</b>@Model.Candidate.DriverTestPassed</h4>
+            </div>
+            <div class="card-footer text-center">
+                <a asp-action="Index"
+                   class="btn-info 
+                         btn">
+                    Back
+                </a>
+                @if (signInManager.IsSignedIn(User))
+                {
+                    <a asp-controller="Candidates"
+                       asp-action="Edit" asp-route-id="@Model.Candidate.ID"
+                       class="btn-info 
+                         btn">
+                        Edit
+                    </a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                }
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<partial name="DetailsTask" model="Model.CandidateTasks"/>

@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<Candidate> 
+@inject SignInManager<ApplicationUser> signInManager;
+@{
+    ViewBag.Title = "Candidate list";
+    
+}
+
+<div class="card-deck">
+    
+    @foreach (var candidate in Model)
+    {
+        /*var photoPath = "~/img/" + (employee.PhotoPath ??
+                                    "dante.png");*/
+
+        <div class="card m-3">
+            <div class="card-header">
+                <h3>@candidate.FirstName @candidate.LastName</h3>
+            </div>
+            @*<img class="card-img-top" src="@photoPath"
+                 asp-append-version="true"/>*@
+            <div class="card-footer text-center">
+                <a asp-controller="Candidates" 
+                   asp-action="Details" 
+                   asp-route-id="@candidate.ID" class="btn btn-info m-1">View</a>
+                @if (signInManager.IsSignedIn(User) )
+                {
+                    
+                    <a asp-controller="Candidates" 
+                       asp-action="AddTask" 
+                       asp-route-id="@candidate.ID" class="btn btn-info m-1">Assign Task</a>
+                    <a asp-controller="Candidates"
+                       asp-action="Edit" asp-route-id="@candidate.ID"
+                       class="btn 
+                btn-info 
+                m-1">Edit</a>
+                    <form method="post"  asp-route-id="@candidate.ID" asp-action="Delete">
+                        <button class="btn btn-danger m-1"
+                                href="#">Delete</button></form>
+                }
+            </div>
+        </div>
+    }
+</div>
+  @if (signInManager.IsSignedIn(User))
+  {
+      
+    <div class="col-auto"><a asp-action="Create" class="btn btn-info">Create</a>
+    </div>
+  }
+
